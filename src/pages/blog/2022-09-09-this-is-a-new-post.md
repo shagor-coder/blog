@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/BlogPost.astro'
 title: 'This is a new post '
-date: 2022-09-09T23:45:52.978Z
+pubDate: 2022-09-09T23:45:52.978Z
 heroImage: '/images/uploads/capture.PNG'
 rating: 5
 ---
