@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPost.astro
 title: This is a mobile post
 pubDate: 2022-09-10T00:44:25.152Z
-heroImage: /public/images/uploads/Capture.PNG
+heroImage: /public/images/uploads/10_client-s-name_calendar-funnel_section7_image1-1-.jpg
 rating: 5
 ---
 # T﻿his is post header
