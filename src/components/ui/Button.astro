@@ -1,0 +1,14 @@
+---
+export interface Props extends astroHTML.JSX.ButtonHTMLAttributes {}
+
+const { type, disabled, ...props } = Astro.props
+---
+
+<button
+  class='text-center text-white px-5 py-3 text-base bg-green-700 transition delay-300 hover:bg-green-800 rounded-md'
+  {...props}
+  disabled={disabled}
+  type={type}
+>
+  This is a button
+</button>

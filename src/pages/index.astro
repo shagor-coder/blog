@@ -8,13 +8,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
 <!DOCTYPE html>
 <html lang='en'>
   <head>
-    <script src='https://identity.netlify.com/v1/netlify-identity-widget.js'
-    ></script>
+    <!-- <script src='https://identity.netlify.com/v1/netlify-identity-widget.js'
+    ></script> -->
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
     <Header title={SITE_TITLE} />
-    <main>
+    <main class='container mx-auto pt-10'>
       <h1>🧑‍🚀 Hello, Astronaut!</h1>
       <p>
         Welcome to the official <a href='https://astro.build/'>Astro</a> blog starter
@@ -63,7 +63,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
     </main>
     <Footer />
 
-    <script>
+    <!-- <script>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on('init', (user) => {
           if (!user) {
@@ -73,6 +73,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
           }
         })
       }
-    </script>
+    </script> -->
   </body>
 </html>
