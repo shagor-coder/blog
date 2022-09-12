@@ -1,0 +1,13 @@
+---
+export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
+
+const { href, ...props } = Astro.props
+const className =
+  'text-white flex justify-center items-center text-center w-full px-5 py-3 rounded-md cursor-pointer font-normal bg-green-600 hover:bg-green-700 text-base  transition-all'
+---
+
+<div class='mt-auto w-full'>
+  <a href={href} class={className} {...props}>
+    <slot />
+  </a>
+</div>

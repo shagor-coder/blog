@@ -1,0 +1,7 @@
+.single-post .post-body h2 {
+  @apply text-3xl font-semibold text-slate-700 mb-3;
+}
+
+.single-post .post-body p {
+  @apply text-base font-normal text-slate-700 mb-3;
+}

@@ -1,9 +1,11 @@
 ---
-import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
+import Anchor from '../components/ui/Anchor.astro'
+import Headline from '../components/ui/Headline.astro'
 import Footer from '../components/Footer.astro'
+import BaseHead from '../components/BaseHead.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
-import Button from '../components/ui/Button.astro'
+import SubHeadline from '../components/ui/SubHeadline.astro'
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
@@ -20,7 +22,8 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
   </head>
   <body>
     <Header />
-    <main class='container mx-auto pt-10'>
+    <main class='container mx-auto mt-10'>
+      <Headline align='center' name='Recent Posts' />
       <section class='grid grid-cols-1 md:grid-cols-3'>
         <div class='blog-container col-start-1 col-end-3'>
           <div
@@ -28,28 +31,35 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
           >
             {
               posts.map((post) => (
-                <div class=' w-auto flex flex-col items-center'>
-                  <a href={post.url}>
-                    <div class='w-full h-64 flex items-center rounded-md shadow overflow-hidden'>
-                      <img
-                        class='w-full h-full object-cover aspect-video'
-                        src={post.frontmatter.heroImage}
-                        alt={post.frontmatter.title}
-                      />
-                    </div>
-                  </a>
-                  <h4 class=' w-full mt-4 text-left text-2xl font-bold text-slate-700'>
-                    {post.frontmatter.title}
-                  </h4>
-                  <p class=' w-full flex flex-row items-center justify-between mt-1 text-sm font-bold text-slate-500'>
-                    <span>{post.frontmatter.author}</span>
-                    <span>{post.frontmatter.pubDate}</span>
-                  </p>
+                <div class=' w-auto flex flex-col items-center bg-slate-100 rounded-md shadow shadow-green-200 overflow-hidden'>
+                  <div class='w-full h-44 flex items-center'>
+                    <img
+                      class='w-full h-full object-cover aspect-video'
+                      src={post.frontmatter.heroImage}
+                      alt={post.frontmatter.title}
+                    />
+                  </div>
+                  <div class='body w-full'>
+                    <h4 class='px-4 w-full mt-4 text-left text-xl font-semibold text-slate-700'>
+                      {post.frontmatter.title}
+                    </h4>
+                    <p class='px-4 w-full flex flex-row items-center justify-between mt-1 text-xs font-light text-slate-500 mb-3'>
+                      <span>{post.frontmatter.author}</span>
+                      <span>{post.frontmatter.pubDate}</span>
+                    </p>
+                    <Anchor href={post.url}>
+                      <span>Read More</span>
+                    </Anchor>
+                  </div>
                 </div>
               ))
             }
           </div>
-          <div class='side-bar col-start-3'></div>
+        </div>
+        <div class='side-bar col-start-3'>
+          <div class='pl-6'>
+            <SubHeadline align='left' name='Search' />
+          </div>
         </div>
       </section>
     </main>

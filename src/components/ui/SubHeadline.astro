@@ -1,0 +1,9 @@
+---
+const { textAlign, name, ...props } = Astro.props
+---
+
+<div class='mt-3'>
+  <h2 class={`text-5xl text-slate-900 font-bold ${textAlign}`} {...props}>
+    {name}
+  </h2>
+</div>

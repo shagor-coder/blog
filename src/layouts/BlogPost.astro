@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import '../styles/single-blog.css'
 
 export interface Props {
   content: {
@@ -22,43 +23,42 @@ const {
 <html lang='en'>
   <head>
     <BaseHead title={title} description={description} />
-    <style>
-      .title {
-        font-size: 2em;
-        margin: 0.25em 0 0;
-      }
-      hr {
-        border-top: 1px solid #ddd;
-        margin: 1rem 0;
-      }
-    </style>
   </head>
 
   <body>
     <Header />
-    <main class='container mx-auto pt-10'>
-      <article>
-        {
-          heroImage && (
-            <img
-              class='w-full h-80 object-cover aspect-video'
-              src={heroImage}
-              alt={title}
-            />
-          )
-        }
-        <h1 class='title'>{title}</h1>
-        {pubDate && <time>{pubDate}</time>}
-        {
-          updatedDate && (
-            <div>
-              Last updated on <time>{updatedDate}</time>
-            </div>
-          )
-        }
-        {author && <h4>{author}</h4>}
-        <hr />
-        <slot />
+    <main class='max-w-5xl mx-auto pt-10'>
+      <article class='single-post'>
+        <div class='post-header'>
+          {
+            heroImage && (
+              <div class=' mb-6'>
+                <img
+                  class='w-full h-80 object-cover aspect-video'
+                  src={heroImage}
+                  alt={title}
+                />
+              </div>
+            )
+          }
+          <h1 class='title text-4xl text-slate-800 font-bold mb-3'>{title}</h1>
+          {
+            pubDate && (
+              <p class=' text-sm text-gray-600 font-light'>{pubDate}</p>
+            )
+          }
+          {
+            updatedDate && (
+              <div>
+                <p class='text-sm text-gray-600 font-light'>{updatedDate}</p>
+              </div>
+            )
+          }
+          {author && <h4>{author}</h4>}
+        </div>
+        <div class='post-body mt-3 pt-3 border-t-2 border-gray-200'>
+          <slot />
+        </div>
       </article>
     </main>
     <Footer />

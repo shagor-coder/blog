@@ -1,0 +1,9 @@
+---
+const { align, name, ...props } = Astro.props
+---
+
+<div class='mb-6'>
+  <h1 class={`text-5xl text-slate-900 font-bold ${align}`} {...props}>
+    {name}
+  </h1>
+</div>
